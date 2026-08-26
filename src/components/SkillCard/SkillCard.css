@@ -1,0 +1,79 @@
+/* ── Skill Card Styles ── */
+
+.skill-card {
+  position: relative;
+  padding: var(--space-6);
+  text-align: center;
+  overflow: hidden;
+  cursor: default;
+}
+
+.skill-card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.skill-card:hover .skill-card-icon-wrap {
+  border-color: var(--skill-color, var(--color-accent-blue));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--skill-color, var(--color-accent-blue)) 30%, transparent);
+  transform: scale(1.1);
+}
+
+.skill-card-icon {
+  font-size: 1.75rem;
+  color: var(--skill-color, var(--color-accent-blue));
+  transition: all var(--transition-base);
+}
+
+.skill-card-name {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.skill-card-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  line-height: var(--leading-relaxed);
+}
+
+.skill-card-glow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 40px;
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.skill-card:hover .skill-card-glow {
+  opacity: 0.15;
+}
+
+@media (max-width: 768px) {
+  .skill-card {
+    padding: var(--space-4);
+  }
+
+  .skill-card-icon-wrap {
+    width: 48px;
+    height: 48px;
+  }
+
+  .skill-card-icon {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,43 @@
+/* ── Custom Cursor Styles ── */
+
+.custom-cursor-dot,
+.custom-cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-cursor);
+  border-radius: 50%;
+  transition: opacity var(--transition-fast), transform var(--transition-fast) ease-out;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent-blue);
+  box-shadow: 0 0 10px var(--color-accent-blue);
+  /* The dot follows instantly */
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-ring {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  /* The ring has a slight delay due to transition */
+  transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.1s ease-out;
+}
+
+/* Hover State */
+.custom-cursor-dot.hover {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-accent-cyan);
+}
+
+.custom-cursor-ring.hover {
+  width: 50px;
+  height: 50px;
+  border-color: rgba(6, 182, 212, 0.8);
+  background-color: rgba(6, 182, 212, 0.05);
+  backdrop-filter: blur(2px);
+}

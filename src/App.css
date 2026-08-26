@@ -1,0 +1,10 @@
+/* ── App-level Styles ── */
+
+.app {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.app-loading {
+  opacity: 0;
+}
