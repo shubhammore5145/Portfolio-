@@ -3,8 +3,7 @@
 // ============================================
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaArrowRight, FaDownload, FaTerminal, FaCodeBranch } from 'react-icons/fa';
-import { SiFirebase, SiReact, SiPython } from 'react-icons/si';
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaArrowRight, FaDownload } from 'react-icons/fa';
 import Button from '../../components/Button/Button';
 import { personalInfo } from '../../data/portfolioData';
 import './Hero.css';
@@ -40,6 +39,20 @@ const Hero = () => {
 
   return (
     <section className="hero section" id="home">
+      {/* ── 3D Fullscreen Background ── */}
+      <div className="hero-visual">
+        <div className="hero-spline-container">
+          <iframe 
+            src="https://my.spline.design/week4-7b7d5f3a79e606f3ddbe8f7b937b7935/" 
+            frameBorder="0" 
+            width="100%" 
+            height="100%" 
+            title="Spline 3D Character"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
       {/* ── Animated Background ── */}
       <div 
         className="hero-bg"
@@ -154,60 +167,6 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* ── Right Visual Workspace ── */}
-        <div className="hero-visual">
-          <motion.div
-            className="hero-hologram"
-            style={{
-              transform: `translate(${mousePosition.x * 1.5}px, ${mousePosition.y * 1.5}px) rotateY(${mousePosition.x * 0.5}deg) rotateX(${mousePosition.y * -0.5}deg)`
-            }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            {/* Main Holographic Window */}
-            <div className="hologram-window glass-card neon-border">
-              <div className="hologram-header">
-                <div className="hologram-dots">
-                  <span className="dot red" />
-                  <span className="dot yellow" />
-                  <span className="dot green" />
-                </div>
-                <div className="hologram-title">developer_profile.exe</div>
-              </div>
-              <div className="hologram-body" style={{ textAlign: 'center', padding: '2rem' }}>
-                <h3 style={{ color: 'var(--color-accent-blue)', marginBottom: '1rem' }}>SYSTEM ONLINE</h3>
-                <p style={{ color: 'var(--color-text-secondary)' }}>Ready to build scalable web applications, deploy AI models, and engineer real-time IoT solutions.</p>
-              </div>
-            </div>
-
-            {/* Floating Terminal */}
-            <motion.div 
-              className="floating-terminal glass-card"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <FaTerminal className="term-icon" />
-              <span>&gt; system optimized...</span>
-            </motion.div>
-
-            {/* Currently Building Card */}
-            <motion.div 
-              className="building-card glass-card"
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            >
-              <div className="building-badge">Currently Building</div>
-              <h4>Smart Ambulance Traffic Management</h4>
-              <p>ESP32 • Firebase • Web • IoT</p>
-            </motion.div>
-
-            {/* Tech Nodes */}
-            <motion.div className="tech-node node-1" animate={{ y: [0, -5, 0] }} transition={{ duration: 3, repeat: Infinity }}><SiReact color="#61dafb" /></motion.div>
-            <motion.div className="tech-node node-2" animate={{ y: [0, 5, 0] }} transition={{ duration: 3.5, repeat: Infinity }}><SiPython color="#3776ab" /></motion.div>
-            <motion.div className="tech-node node-3" animate={{ y: [0, -8, 0] }} transition={{ duration: 4, repeat: Infinity }}><SiFirebase color="#ffca28" /></motion.div>
-          </motion.div>
-        </div>
       </div>
 
       {/* ── Scroll Indicator ── */}
