@@ -2,7 +2,8 @@
 // PROJECT CARD COMPONENT
 // ============================================
 
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaEye } from 'react-icons/fa';
 import Button from '../Button/Button';
 import './ProjectCard.css';
@@ -19,17 +20,64 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
     'linear-gradient(135deg, #a78bfa 0%, #6366f1 50%, #ec4899 100%)',
   ];
 
+  const cardRef = useRef(null);
+
+  // Motion values for 3D tilt
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springConfig = { damping: 20, stiffness: 100 };
+  const smoothX = useSpring(x, springConfig);
+  const smoothY = useSpring(y, springConfig);
+
+  // Map mouse position to rotation degrees
+  const rotateX = useTransform(smoothY, [-0.5, 0.5], [15, -15]);
+  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-15, 15]);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <motion.article
-      className="project-card glass-card"
+      ref={cardRef}
+      className="project-card"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: 'preserve-3d',
+      }}
     >
+      <motion.div
+        className="project-card-inner glass-card"
+        style={{ transformStyle: 'preserve-3d', transform: 'translateZ(30px)' }}
+      >
       <div
         className="project-card-image"
-        style={{ background: placeholderGradients[index % placeholderGradients.length] }}
+        style={{ background: placeholderGradients[index % placeholderGradients.length], transform: 'translateZ(40px)' }}
       >
         {project.image && (
           <img
@@ -47,7 +95,7 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
         )}
       </div>
 
-      <div className="project-card-content">
+      <div className="project-card-content" style={{ transform: 'translateZ(30px)' }}>
         <h3 className="project-card-title">{project.title}</h3>
         <p className="project-card-subtitle">{project.subtitle}</p>
         <p className="project-card-description">{project.description}</p>
@@ -98,7 +146,7 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
             Details
           </Button>
         </div>
-      </div>
+      </motion.div>
     </motion.article>
   );
 };

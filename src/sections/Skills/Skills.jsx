@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import TechOrbit from '../../components/TechOrbit/TechOrbit';
 import { techCategories } from '../../data/portfolioData';
 import './Skills.css';
 
@@ -16,8 +17,13 @@ const Skills = () => {
           subtitle="The tools and frameworks I use to build scalable applications"
         />
 
-        <div className="tech-wall">
-          {techCategories.map((category, catIndex) => (
+        <div className="skills-content">
+          <div className="skills-orbit-wrapper">
+            <TechOrbit />
+          </div>
+
+          <div className="tech-wall">
+            {techCategories.map((category, catIndex) => (
             <div key={category.id} className="tech-category">
               <h3 className="tech-category-title">{category.title}</h3>
               <div className="tech-grid">
@@ -43,6 +49,7 @@ const Skills = () => {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>

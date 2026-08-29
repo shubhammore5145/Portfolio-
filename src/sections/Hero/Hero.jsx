@@ -2,7 +2,7 @@
 // HERO SECTION — Premium Redesign
 // ============================================
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaEnvelope, FaArrowRight, FaDownload } from 'react-icons/fa';
 import Button from '../../components/Button/Button';
 import { personalInfo } from '../../data/portfolioData';
@@ -10,7 +10,17 @@ import './Hero.css';
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Motion values for ultra-smooth parallax without re-renders
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const springConfig = { damping: 25, stiffness: 150 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  const xTrans = useTransform(smoothX, [-10, 10], [10, -10]);
+  const yTrans = useTransform(smoothY, [-10, 10], [10, -10]);
 
   // Rotate roles every 3 seconds
   useEffect(() => {
@@ -30,7 +40,8 @@ const Hero = () => {
       const { clientX, clientY } = e;
       const x = (clientX / window.innerWidth - 0.5) * 20; // -10 to 10
       const y = (clientY / window.innerHeight - 0.5) * 20; // -10 to 10
-      setMousePosition({ x, y });
+      mouseX.set(x);
+      mouseY.set(y);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -54,10 +65,11 @@ const Hero = () => {
       </div>
 
       {/* ── Animated Background ── */}
-      <div 
+      <motion.div 
         className="hero-bg"
         style={{
-          transform: `translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)`
+          x: xTrans,
+          y: yTrans
         }}
       >
         <div className="hero-grid-pattern" />
@@ -69,7 +81,7 @@ const Hero = () => {
             <div key={i} className={`particle p-${i}`} />
           ))}
         </div>
-      </div>
+      </motion.div>
 
       <div className="container hero-container">
         {/* ── Left Content ── */}

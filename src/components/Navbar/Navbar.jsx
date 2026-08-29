@@ -3,9 +3,10 @@
 // ============================================
 
 import { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedinIn, FaBars, FaTimes, FaDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaBars, FaTimes, FaDownload, FaSun, FaMoon } from 'react-icons/fa';
 import { navLinks, personalInfo } from '../../data/portfolioData';
 import { useActiveSection } from '../../hooks/useActiveSection';
+import { useTheme } from '../../context/ThemeContext';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sectionIds = navLinks.map((link) => link.id);
   const activeSection = useActiveSection(sectionIds);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,6 +78,9 @@ const Navbar = () => {
                   <FaLinkedinIn />
                 </a>
               )}
+              <button className="navbar-theme-btn" onClick={toggleTheme} aria-label="Toggle Theme">
+                {theme === 'dark' ? <FaSun /> : <FaMoon />}
+              </button>
               <button className="navbar-resume-btn" onClick={handleResumeClick} aria-label="Download Resume">
                 <FaDownload />
                 <span>Resume</span>
@@ -95,6 +100,9 @@ const Navbar = () => {
               <FaLinkedinIn />
             </a>
           )}
+          <button className="navbar-theme-btn" onClick={toggleTheme} aria-label="Toggle Theme">
+            {theme === 'dark' ? <FaSun /> : <FaMoon />}
+          </button>
           <button className="navbar-resume-btn" onClick={handleResumeClick} aria-label="Download Resume">
             <FaDownload />
             <span>Resume</span>

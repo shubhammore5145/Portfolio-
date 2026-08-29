@@ -1,0 +1,129 @@
+.tech-orbit-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.orbit-center {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  color: var(--color-accent-blue);
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.orbit-inner {
+  width: 45%;
+  height: 45%;
+  animation-name: spin;
+  animation-duration: 20s;
+}
+
+.orbit-middle {
+  width: 70%;
+  height: 70%;
+  animation-name: spin-reverse;
+  animation-duration: 35s;
+}
+
+.orbit-outer {
+  width: 95%;
+  height: 95%;
+  animation-name: spin;
+  animation-duration: 50s;
+}
+
+.orbit-node-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  /* Move back to top-left corner, then rotate from center */
+  transform-origin: center center;
+  transform: translate(-50%, -50%) rotate(var(--angle));
+}
+
+.orbit-node {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  /* This needs to cancel the orbit rotation AND the container angle */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.orbit-node:hover {
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* Animations for counter-rotation */
+.inner-node { animation-name: counter-spin; animation-duration: 20s; }
+.middle-node { animation-name: counter-spin-reverse; animation-duration: 35s; }
+.outer-node { animation-name: counter-spin; animation-duration: 50s; }
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes counter-spin {
+  0% { transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle) - 0deg)); }
+  100% { transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle) - 360deg)); }
+}
+
+@keyframes counter-spin-reverse {
+  0% { transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle) + 0deg)); }
+  100% { transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle) + 360deg)); }
+}
+
+@media (max-width: 768px) {
+  .tech-orbit-container {
+    max-width: 350px;
+  }
+  .orbit-node {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
