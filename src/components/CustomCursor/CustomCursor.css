@@ -41,3 +41,27 @@
   background-color: rgba(6, 182, 212, 0.05);
   backdrop-filter: blur(2px);
 }
+
+.custom-cursor-particle {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent-violet);
+  box-shadow: 0 0 15px var(--color-accent-violet);
+  border-radius: 50%;
+  z-index: calc(var(--z-cursor) - 1);
+  animation: particleFade 0.5s ease-out forwards;
+}
+
+@keyframes particleFade {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}

@@ -1,0 +1,44 @@
+.matrix-overlay-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background-color: #000;
+  overflow: hidden;
+  pointer-events: auto; /* To capture clicks if needed, or prevent interacting with page behind */
+}
+
+.matrix-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.matrix-close-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #0F0;
+  font-family: monospace;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  border: 1px solid #0F0;
+  border-radius: 4px;
+  animation: blink 2s infinite;
+}
+
+.matrix-close-hint span {
+  font-weight: bold;
+  background: #0F0;
+  color: #000;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

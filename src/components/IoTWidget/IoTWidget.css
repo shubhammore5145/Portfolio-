@@ -1,0 +1,121 @@
+.iot-widget {
+  background: rgba(15, 23, 42, 0.7);
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-8);
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+}
+
+.iot-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent-blue);
+  border-radius: 50%;
+}
+
+.pulsing {
+  animation: pulse-dot-anim 1.5s infinite;
+}
+
+.iot-header h4 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.2rem;
+  flex-grow: 1;
+}
+
+.iot-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--color-accent-green);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.iot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.iot-stat-box {
+  background: rgba(10, 15, 25, 0.5);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.iot-icon {
+  font-size: 1.5rem;
+}
+
+.iot-icon.temp { color: #f87171; }
+.iot-icon.cpu { color: #60a5fa; }
+.iot-icon.network { color: #a78bfa; }
+.iot-icon.lamp-on { 
+  color: #facc15; 
+  filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.6));
+}
+.iot-icon.lamp-off { color: #64748b; }
+
+.iot-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.iot-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.iot-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  font-family: monospace;
+}
+
+.iot-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.iot-progress-fill {
+  height: 100%;
+  background: var(--color-accent-blue);
+  transition: width 0.5s ease-out;
+}
+
+@media (max-width: 640px) {
+  .iot-grid {
+    grid-template-columns: 1fr;
+  }
+}

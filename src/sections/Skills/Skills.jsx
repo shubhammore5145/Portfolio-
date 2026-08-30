@@ -19,7 +19,25 @@ const Skills = () => {
 
         <div className="skills-content">
           <div className="skills-orbit-wrapper">
-            <TechOrbit />
+            <motion.div 
+              className="orbit-square-card glass-card neon-border"
+              initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <TechOrbit />
+            </motion.div>
+            <motion.div 
+              className="orbit-info"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h3>Interactive Tech Ecosystem</h3>
+              <p>Explore my technical stack. The core represents my passion for coding, surrounded by layers of languages, frameworks, and tools I use to bring ideas to life.</p>
+            </motion.div>
           </div>
 
           <div className="tech-wall">
@@ -31,10 +49,14 @@ const Skills = () => {
                   <motion.div
                     key={skill.name}
                     className="tech-card glass-card neon-border clickable"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.4, delay: (catIndex * 0.1) + (skillIndex * 0.05) }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: (catIndex * 0.1) + (skillIndex * 0.05),
+                      ease: [0.22, 1, 0.36, 1]
+                    }}
                     whileHover={{ y: -5 }}
                   >
                     <div className="tech-card-icon" style={{ color: skill.color }}>

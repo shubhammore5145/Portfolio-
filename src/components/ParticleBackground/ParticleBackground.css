@@ -1,0 +1,13 @@
+.particles-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* Let clicks pass through to the particles but not block UI */
+}
+
+/* Fix for interactivity: tsParticles needs pointer-events to register hover/click.
+   But if we set it on the container, it blocks the UI. 
+   Usually, tsParticles attaches events to window/document anyway if z-index is low. */

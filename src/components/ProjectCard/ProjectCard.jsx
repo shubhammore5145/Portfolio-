@@ -66,14 +66,17 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
+        perspective: 1000
       }}
     >
       <motion.div
         className="project-card-inner glass-card"
-        style={{ transformStyle: 'preserve-3d', transform: 'translateZ(30px)' }}
+        style={{ 
+          rotateX,
+          rotateY,
+          transformStyle: 'preserve-3d',
+          transform: 'translateZ(30px)' 
+        }}
       >
       <div
         className="project-card-image"

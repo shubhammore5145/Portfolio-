@@ -7,6 +7,40 @@
   align-items: center;
 }
 
+.skills-orbit-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.orbit-square-card {
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.orbit-info {
+  text-align: center;
+  padding: 0 var(--space-4);
+}
+
+.orbit-info h3 {
+  font-size: var(--text-xl);
+  color: var(--color-accent-blue);
+  margin-bottom: var(--space-3);
+  font-weight: var(--weight-bold);
+}
+
+.orbit-info p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
 .tech-wall {
   display: flex;
   flex-direction: column;

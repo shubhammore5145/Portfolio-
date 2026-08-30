@@ -38,6 +38,10 @@ const Footer = () => {
           <p className="footer-made-with">
             Built with <FaHeart className="heart-icon" /> and React
           </p>
+          
+          <p className="footer-secret-hint" style={{ opacity: 0.2, fontSize: '0.65rem', marginTop: '10px', fontFamily: 'monospace', cursor: 'default' }}>
+            [ hint: system.type("h a c k") ]
+          </p>
         </div>
       </div>
     </footer>

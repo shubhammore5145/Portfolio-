@@ -10,6 +10,29 @@ import ProjectModal from './ProjectModal';
 import { projectsData, featuredProject, projectFilters } from '../../data/portfolioData';
 import './Projects.css';
 
+// Premium high-level animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { 
+      duration: 0.8, 
+      ease: [0.22, 1, 0.36, 1] // Custom cubic-bezier for buttery smooth stop
+    }
+  },
+  exit: { opacity: 0, scale: 0.9, transition: { duration: 0.3 } }
+};
+
 const Projects = () => {
   const [filter, setFilter] = useState('ALL');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -49,10 +72,10 @@ const Projects = () => {
         {(filter === 'ALL' || filter === featuredProject.category) && (
           <motion.div 
             className="featured-project glass-card neon-border"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="featured-visual">
               {/* Animated Traffic Signal Viz */}
@@ -99,16 +122,20 @@ const Projects = () => {
         )}
 
         {/* ── Grid Projects ── */}
-        <motion.div layout className="projects-grid">
+        <motion.div 
+          layout 
+          className="projects-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           <AnimatePresence>
             {filteredProjects.map((project, idx) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                viewport={{ amount: 0.5 }}
-                transition={{ duration: 0.4 }}
+                variants={itemVariants}
+                exit="exit"
                 key={project.id}
                 className="project-card glass-card neon-border clickable"
                 onClick={() => openModal(project)}

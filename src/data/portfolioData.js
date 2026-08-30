@@ -49,7 +49,7 @@ export const personalInfo = {
   location: "India",
   github: "https://github.com/shubhammore5145",
   linkedin: "https://www.linkedin.com/in/shubham-more-50a2a7428",
-  resumePath: "#",
+  resumePath: "/resume/Shubham_More_Resume.pdf",
   profileImage: "/images/profile.jpg",
   githubUsername: "shubhammore5145",
   education: {
@@ -100,7 +100,7 @@ export const techCategories = [
       { name: "PHP", icon: FaCode, color: "#777bb4", description: "Server-side Scripting" },
       { name: "XAMPP", icon: FaServer, color: "#fb7a24", description: "Local Web Server" },
       { name: "Node.js", icon: FaNodeJs, color: "#339933", description: "Server-side Runtime" },
-      { name: "Express.js", icon: SiExpress, color: "#ffffff", description: "Backend Framework" },
+      { name: "Express.js", icon: SiExpress, color: "#333333", description: "Backend Framework" },
       { name: "Firebase", icon: SiFirebase, color: "#ffca28", description: "BaaS" }
     ]
   },
@@ -117,10 +117,10 @@ export const techCategories = [
     title: "Tools",
     skills: [
       { name: "Git", icon: FaGitAlt, color: "#f05032", description: "Version Control" },
-      { name: "GitHub", icon: FaGithub, color: "#ffffff", description: "Code Hosting & CI/CD" },
+      { name: "GitHub", icon: FaGithub, color: "#333333", description: "Code Hosting & CI/CD" },
       { name: "VS Code", icon: VscVscode, color: "#007acc", description: "Code Editor" },
       { name: "Netlify", icon: SiNetlify, color: "#00c7b7", description: "Frontend Hosting" },
-      { name: "Vercel", icon: SiVercel, color: "#ffffff", description: "Serverless Deployment" }
+      { name: "Vercel", icon: SiVercel, color: "#333333", description: "Serverless Deployment" }
     ]
   }
 ];

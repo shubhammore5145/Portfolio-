@@ -16,10 +16,12 @@ const TechOrbit = () => {
         <div 
           key={skill.name} 
           className={`orbit-node-container ${orbitClass}-node-container`}
-          style={{ '--angle': `${angle}deg` }}
+          style={{ transform: `translate(-50%, -50%) rotate(${angle}deg)` }}
         >
           <div className={`orbit-node ${orbitClass}-node`} style={{ color: skill.color }} title={skill.name}>
-            <skill.icon />
+            <div className="icon-wrapper" style={{ transform: `rotate(-${angle}deg)` }}>
+              <skill.icon />
+            </div>
           </div>
         </div>
       );

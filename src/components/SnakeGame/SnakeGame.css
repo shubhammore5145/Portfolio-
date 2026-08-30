@@ -1,0 +1,103 @@
+.snake-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(10, 15, 25, 0.95);
+  border: 1px solid var(--color-accent-green);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  width: fit-content;
+  margin: 20px auto;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.snake-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--color-accent-green);
+  font-family: monospace;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.snake-close-btn {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--color-accent-green);
+  border: 1px solid var(--color-accent-green);
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.snake-close-btn:hover {
+  background: var(--color-accent-green);
+  color: #000;
+}
+
+.snake-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 15px);
+  grid-template-rows: repeat(20, 15px);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.snake-cell {
+  width: 15px;
+  height: 15px;
+}
+
+.snake-head {
+  background: var(--color-accent-green);
+  box-shadow: 0 0 8px var(--color-accent-green);
+  border-radius: 2px;
+}
+
+.snake-body {
+  background: rgba(16, 185, 129, 0.7);
+  border-radius: 2px;
+}
+
+.snake-food {
+  background: #f87171;
+  box-shadow: 0 0 8px #f87171;
+  border-radius: 50%;
+}
+
+.snake-game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.snake-game-over h3 {
+  color: #f87171;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-family: monospace;
+}
+
+.snake-game-over button {
+  margin-top: 20px;
+  background: var(--color-accent-green);
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}

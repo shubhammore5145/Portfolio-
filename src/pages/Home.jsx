@@ -13,6 +13,8 @@ import Certificates from '../sections/Certificates/Certificates';
 import Achievements from '../sections/Achievements/Achievements';
 import GitHub from '../sections/GitHub/GitHub';
 import Contact from '../sections/Contact/Contact';
+import TerminalSection from '../sections/Terminal/TerminalSection';
+import MatrixOverlay from '../components/MatrixOverlay/MatrixOverlay';
 
 const Home = () => {
   return (
@@ -21,6 +23,7 @@ const Home = () => {
       <About />
       <WhatIDo />
       <Skills />
+      <TerminalSection />
       <Projects />
       <Workspace />
       <LiveWork />
@@ -29,6 +32,7 @@ const Home = () => {
       <Achievements />
       <GitHub />
       <Contact />
+      <MatrixOverlay />
     </main>
   );
 };

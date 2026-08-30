@@ -50,8 +50,8 @@ const Navbar = () => {
     <header className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`} id="navbar">
       <nav className="navbar-container container" aria-label="Main navigation">
         <a href="#home" className="navbar-logo" onClick={(e) => handleNavClick(e, '#home')}>
-          <span className="navbar-logo-text">SHUBHAM</span>
-          <span className="navbar-logo-accent">MORE</span>
+          <span className="navbar-logo-text">&lt;Shubham</span>
+          <span className="navbar-logo-accent">/&gt;</span>
         </a>
 
         <ul className={`navbar-links ${isMobileOpen ? 'navbar-links-open' : ''}`}>
