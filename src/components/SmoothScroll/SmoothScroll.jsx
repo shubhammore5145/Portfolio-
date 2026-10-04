@@ -14,17 +14,23 @@ export default function SmoothScroll() {
       touchMultiplier: 2,
     });
 
+    // Make lenis globally accessible for pausing/resuming on modal open
+    window.__lenis = lenis;
+
     // Run raf (requestAnimationFrame) loop
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     // Clean up on unmount
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete window.__lenis;
     };
   }, []);
 

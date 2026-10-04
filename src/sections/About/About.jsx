@@ -2,7 +2,7 @@
 // ABOUT & QUICK STATS SECTION
 // ============================================
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaCode, FaServer, FaBrain } from 'react-icons/fa';
+import { FaArrowRight, FaCode, FaServer, FaBrain, FaGraduationCap } from 'react-icons/fa';
 import { personalInfo, statistics } from '../../data/portfolioData';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Button from '../../components/Button/Button';
@@ -76,6 +76,16 @@ const About = () => {
             <h3 className="about-heading">{personalInfo.aboutIntro}</h3>
             <p className="about-description">{personalInfo.aboutText}</p>
 
+            <div className="about-education-banner glass-card neon-border">
+              <div className="about-edu-icon-wrap">
+                <FaGraduationCap />
+              </div>
+              <div className="about-edu-info">
+                <h4>{personalInfo.education.degree}</h4>
+                <p>{personalInfo.education.university} • {personalInfo.education.duration}</p>
+              </div>
+            </div>
+
             <div className="about-interests">
               <h4 className="about-interests-title">Core Focus Areas:</h4>
               <div className="about-interest-tags">
@@ -108,7 +118,7 @@ const About = () => {
             <motion.div
               key={stat.label}
               className="about-stat glass-card"
-              whileHover={{ y: -5, borderColor: 'rgba(99, 102, 241, 0.4)' }}
+              whileHover={{ y: -5, borderColor: 'rgba(139, 92, 246, 0.4)' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

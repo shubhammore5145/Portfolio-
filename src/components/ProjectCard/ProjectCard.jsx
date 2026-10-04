@@ -1,38 +1,35 @@
 // ============================================
-// PROJECT CARD COMPONENT
+// PROJECT CARD COMPONENT (Ultra-Premium 3D)
 // ============================================
 
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaEye } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaEye, FaCode, FaMicrochip, FaBrain, FaCoffee } from 'react-icons/fa';
 import Button from '../Button/Button';
 import './ProjectCard.css';
 
-const ProjectCard = ({ project, index, onViewDetails }) => {
-  const placeholderGradients = [
-    'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%)',
-    'linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%)',
-    'linear-gradient(135deg, #06b6d4 0%, #22c55e 50%, #6366f1 100%)',
-    'linear-gradient(135deg, #ec4899 0%, #6366f1 50%, #06b6d4 100%)',
-    'linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #8b5cf6 100%)',
-    'linear-gradient(135deg, #22c55e 0%, #06b6d4 50%, #8b5cf6 100%)',
-    'linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #22c55e 100%)',
-    'linear-gradient(135deg, #a78bfa 0%, #6366f1 50%, #ec4899 100%)',
-  ];
+const categoryConfig = {
+  WEB: { color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.15)', border: 'rgba(139, 92, 246, 0.3)', icon: FaCode },
+  AI: { color: '#ec4899', bg: 'rgba(236, 72, 153, 0.15)', border: 'rgba(236, 72, 153, 0.3)', icon: FaBrain },
+  IOT: { color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)', border: 'rgba(16, 185, 129, 0.3)', icon: FaMicrochip },
+  JAVA: { color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.15)', border: 'rgba(245, 158, 11, 0.3)', icon: FaCoffee },
+  PYTHON: { color: '#38bdf8', bg: 'rgba(56, 189, 248, 0.15)', border: 'rgba(56, 189, 248, 0.3)', icon: FaCode },
+};
 
+const ProjectCard = ({ project, index = 0, onViewDetails }) => {
   const cardRef = useRef(null);
 
   // Motion values for 3D tilt
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const springConfig = { damping: 20, stiffness: 100 };
+  const springConfig = { damping: 25, stiffness: 150 };
   const smoothX = useSpring(x, springConfig);
   const smoothY = useSpring(y, springConfig);
 
-  // Map mouse position to rotation degrees
-  const rotateX = useTransform(smoothY, [-0.5, 0.5], [15, -15]);
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-15, 15]);
+  // Map mouse position to subtle rotation degrees
+  const rotateX = useTransform(smoothY, [-0.5, 0.5], [10, -10]);
+  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-10, 10]);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -43,11 +40,8 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-
-    x.set(xPct);
-    y.set(yPct);
+    x.set(mouseX / width - 0.5);
+    y.set(mouseY / height - 0.5);
   };
 
   const handleMouseLeave = () => {
@@ -55,99 +49,129 @@ const ProjectCard = ({ project, index, onViewDetails }) => {
     y.set(0);
   };
 
+  const catStyle = categoryConfig[project.category] || categoryConfig.WEB;
+  const CategoryIcon = catStyle.icon;
+
   return (
     <motion.article
       ref={cardRef}
       className="project-card"
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        perspective: 1000
-      }}
+      style={{ perspective: 1000 }}
     >
       <motion.div
-        className="project-card-inner glass-card"
+        className="project-card-inner glass-card neon-border"
         style={{ 
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d',
-          transform: 'translateZ(30px)' 
         }}
       >
-      <div
-        className="project-card-image"
-        style={{ background: placeholderGradients[index % placeholderGradients.length], transform: 'translateZ(40px)' }}
-      >
-        {project.image && (
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            onError={(e) => { e.target.style.display = 'none'; }}
-          />
-        )}
-        <div className="project-card-image-overlay">
-          <span className="project-card-category">{project.category}</span>
-        </div>
-        {project.featured && (
-          <span className="project-card-featured">★ Featured</span>
-        )}
-      </div>
+        {/* Visual Banner */}
+        <div className="project-card-image" onClick={() => onViewDetails(project)}>
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+          ) : (
+            <div className="project-placeholder">
+              <span>{project.title.charAt(0)}</span>
+            </div>
+          )}
 
-      <div className="project-card-content" style={{ transform: 'translateZ(30px)' }}>
-        <h3 className="project-card-title">{project.title}</h3>
-        <p className="project-card-subtitle">{project.subtitle}</p>
-        <p className="project-card-description">{project.description}</p>
-
-        <div className="project-card-tech">
-          {project.technologies.slice(0, 4).map((tech) => (
-            <span key={tech} className="project-card-tech-tag">{tech}</span>
-          ))}
-          {project.technologies.length > 4 && (
-            <span className="project-card-tech-tag project-card-tech-more">
-              +{project.technologies.length - 4}
+          <div className="project-card-image-overlay">
+            {/* Category Badge */}
+            <span 
+              className="project-card-category"
+              style={{
+                color: catStyle.color,
+                background: catStyle.bg,
+                borderColor: catStyle.border
+              }}
+            >
+              <CategoryIcon style={{ marginRight: '5px', fontSize: '11px' }} />
+              {project.category}
             </span>
-          )}
+
+            {/* Badges on Top Right */}
+            <div className="project-card-top-badges">
+              {project.liveDemo && project.liveDemo !== "#" && (
+                <span className="project-card-live-badge">
+                  <span className="live-ping" />
+                  Live App
+                </span>
+              )}
+              {project.isFeatured && (
+                <span className="project-card-featured-badge">★ Featured</span>
+              )}
+            </div>
+          </div>
         </div>
 
-        <div className="project-card-actions">
-          {project.github && (
-            <Button
-              variant="outline"
-              size="sm"
-              href={project.github}
-              target="_blank"
-              icon={<FaGithub />}
-              id={`github-${project.id}`}
+        {/* Content Area */}
+        <div className="project-card-content">
+          <div className="project-card-header" onClick={() => onViewDetails(project)}>
+            <h3 className="project-card-title">{project.title}</h3>
+            <p className="project-card-subtitle">{project.subtitle}</p>
+          </div>
+
+          <p className="project-card-description">{project.description}</p>
+
+          {/* Tech Stack Chips */}
+          <div className="project-card-tech">
+            {project.technologies.slice(0, 4).map((tech) => (
+              <span key={tech} className="project-card-tech-tag">{tech}</span>
+            ))}
+            {project.technologies.length > 4 && (
+              <span className="project-card-tech-tag project-card-tech-more">
+                +{project.technologies.length - 4}
+              </span>
+            )}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="project-card-actions">
+            {project.liveDemo && project.liveDemo !== "#" && (
+              <a 
+                href={project.liveDemo} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-primary btn-sm clickable"
+                title="View Live Website"
+              >
+                <FaExternalLinkAlt /> Live Demo
+              </a>
+            )}
+            
+            {project.github && project.github !== "#" && (
+              <a 
+                href={project.github} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-outline btn-sm clickable"
+                title="View Source Code on GitHub"
+              >
+                <FaGithub /> Code
+              </a>
+            )}
+
+            <button
+              type="button"
+              className="btn btn-ghost btn-sm clickable"
+              onClick={() => onViewDetails(project)}
+              title="View Complete Project Case Study"
             >
-              Code
-            </Button>
-          )}
-          {project.liveDemo && (
-            <Button
-              variant="primary"
-              size="sm"
-              href={project.liveDemo}
-              target="_blank"
-              icon={<FaExternalLinkAlt />}
-              id={`demo-${project.id}`}
-            >
-              Live Demo
-            </Button>
-          )}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => onViewDetails(project)}
-            icon={<FaEye />}
-            id={`details-${project.id}`}
-          >
-            Details
-          </Button>
+              <FaEye /> Details
+            </button>
+          </div>
         </div>
       </motion.div>
     </motion.article>

@@ -8,43 +8,56 @@ import Button from '../../components/Button/Button';
 import './ProjectModal.css';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
-  // Prevent body scroll when modal is open
+  // Prevent body scroll and pause Lenis when modal is open
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      if (window.__lenis) window.__lenis.stop();
+      window.addEventListener('keydown', handleKeyDown);
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      if (window.__lenis) window.__lenis.start();
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      if (window.__lenis) window.__lenis.start();
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen || !project) return null;
 
   return (
     <AnimatePresence>
-      <div className="modal-backdrop">
+      <div 
+        className="modal-backdrop"
+        data-lenis-prevent="true"
+        onClick={onClose}
+      >
         <motion.div 
           className="modal-backdrop-bg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={onClose}
         />
         
         <motion.div 
           className="modal-content glass-card neon-border"
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 50, scale: 0.95 }}
+          exit={{ opacity: 0, y: 40, scale: 0.95 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          onClick={(e) => e.stopPropagation()}
         >
-          <button className="modal-close clickable" onClick={onClose}>
+          <button className="modal-close clickable" onClick={onClose} aria-label="Close modal">
             <FaTimes />
           </button>
 
-          <div className="modal-scroll-area">
+          <div className="modal-scroll-area" data-lenis-prevent="true">
             {/* Header Image */}
             <div className="modal-image-wrapper">
               {project.image ? (

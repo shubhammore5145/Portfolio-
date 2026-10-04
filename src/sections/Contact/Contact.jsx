@@ -3,7 +3,7 @@
 // ============================================
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db, isFirebaseConfigured } from '../../firebase/config';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
@@ -81,6 +81,26 @@ const Contact = () => {
                   <p>{personalInfo.email}</p>
                 </div>
               </a>
+
+              {personalInfo.phone && (
+                <a href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`} className="contact-card glass-card neon-border clickable">
+                  <div className="contact-icon"><FaPhoneAlt /></div>
+                  <div className="contact-details">
+                    <h4>Phone</h4>
+                    <p>{personalInfo.phone}</p>
+                  </div>
+                </a>
+              )}
+
+              {personalInfo.location && (
+                <div className="contact-card glass-card neon-border">
+                  <div className="contact-icon"><FaMapMarkerAlt /></div>
+                  <div className="contact-details">
+                    <h4>Location</h4>
+                    <p>{personalInfo.location}</p>
+                  </div>
+                </div>
+              )}
               
               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="contact-card glass-card neon-border clickable">
                 <div className="contact-icon"><FaLinkedinIn /></div>

@@ -22,7 +22,7 @@
 .custom-cursor-ring {
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(99, 102, 241, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.5);
   /* The ring has a slight delay due to transition */
   transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.1s ease-out;
 }

@@ -111,9 +111,9 @@
 }
 
 .form-msg.success {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(139, 92, 246, 0.1);
   color: var(--color-success);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .mt-4 { margin-top: var(--space-4); }

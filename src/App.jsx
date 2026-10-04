@@ -14,7 +14,6 @@ import Home from './pages/Home';
 import AiChatWidget from './components/AiChatWidget/AiChatWidget';
 import useHackerMode from './hooks/useHackerMode';
 import { ThemeProvider } from './context/ThemeContext';
-import ParticleBackground from './components/ParticleBackground/ParticleBackground';
 import ErrorBoundary from './components/ErrorBoundary';
 import './styles/global.css';
 
@@ -43,7 +42,6 @@ function App() {
         <Router>
         <SmoothScroll />
         <ScrollProgress />
-        <ParticleBackground />
         {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
         <div className={`app ${isLoading ? 'app-loading' : ''}`}>
           <Routes>

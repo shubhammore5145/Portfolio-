@@ -1,34 +1,34 @@
 /* ============================================
    DESIGN TOKENS & VARIABLES
-   Futuristic Premium Developer Portfolio
+   Premium Purple & Violet Developer Portfolio
 ============================================ */
 
 :root {
   /* Core Colors */
-  --color-bg-primary: #0a0a0c;
-  --color-bg-secondary: #111116;
-  --color-bg-tertiary: #1a1a24;
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #0f0f18;
+  --color-bg-tertiary: #1a1a2e;
   
   --color-text-primary: #ffffff;
   --color-text-secondary: #a1a1aa;
   --color-text-tertiary: #71717a;
   --color-text-muted: #52525b;
 
-  /* Accents (Soft Green Theme) */
-  --color-accent-blue: #10b981; /* Primary Emerald */
-  --color-accent-violet: #34d399; /* Lighter Mint/Emerald */
-  --color-accent-cyan: #059669; /* Darker Teal/Emerald */
+  /* Accents (Purple & Violet Theme) */
+  --color-accent-blue: #8b5cf6; /* Primary Violet */
+  --color-accent-violet: #a78bfa; /* Lighter Lavender */
+  --color-accent-cyan: #7c3aed; /* Deeper Purple */
   
   --color-error: #ef4444;
-  --color-success: #10b981;
+  --color-success: #8b5cf6;
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-violet));
-  --gradient-glow: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(52, 211, 153, 0.4));
-  --gradient-text: linear-gradient(to right, #34d399, #6ee7b7, #10b981); /* Brighter Emerald */
+  --gradient-glow: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(167, 139, 250, 0.4));
+  --gradient-text: linear-gradient(to right, #a78bfa, #c4b5fd, #8b5cf6); /* Bright Violet */
   
   /* Glassmorphism */
-  --glass-bg: rgba(17, 17, 22, 0.6);
+  --glass-bg: rgba(15, 15, 24, 0.6);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: blur(16px);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
@@ -116,24 +116,23 @@
 }
 
 [data-theme="light"] {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f4f4f5;
-  --color-bg-tertiary: #e4e4e7;
+  --color-bg-primary: #faf9ff;
+  --color-bg-secondary: #f0edff;
+  --color-bg-tertiary: #e4e0f5;
   
   --color-text-primary: #09090b;
   --color-text-secondary: #3f3f46;
   --color-text-tertiary: #52525b;
   --color-text-muted: #71717a;
 
-  --color-accent-blue: #059669;
-  --color-accent-violet: #10b981;
-  --color-accent-cyan: #047857;
+  --color-accent-blue: #7c3aed;
+  --color-accent-violet: #8b5cf6;
+  --color-accent-cyan: #6d28d9;
   
   --color-error: #dc2626;
-  --color-success: #059669;
+  --color-success: #7c3aed;
 
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.1);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
-

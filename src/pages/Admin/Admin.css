@@ -109,7 +109,7 @@
 }
 
 .admin-nav-item:hover, .admin-nav-item.active {
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(139, 92, 246, 0.1);
   color: var(--color-accent-blue);
 }
 

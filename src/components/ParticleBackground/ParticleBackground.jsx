@@ -45,10 +45,10 @@ const ParticleBackground = () => {
       },
       particles: {
         color: {
-          value: "#10b981", // Neon green to match accent
+          value: "#8b5cf6", // Violet to match accent
         },
         links: {
-          color: "#10b981",
+          color: "#8b5cf6",
           distance: 150,
           enable: true,
           opacity: 0.3,
