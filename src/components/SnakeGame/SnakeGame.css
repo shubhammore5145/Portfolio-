@@ -9,14 +9,14 @@
   position: relative;
   width: fit-content;
   margin: 20px auto;
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
 }
 
 .snake-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  color: var(--color-accent-blue);
+  color: #ffffff;
   font-family: monospace;
   font-size: 1.2rem;
   margin-bottom: 15px;
@@ -24,9 +24,9 @@
 }
 
 .snake-close-btn {
-  background: rgba(139, 92, 246, 0.2);
-  color: var(--color-accent-blue);
-  border: 1px solid var(--color-accent-blue);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 4px 10px;
   border-radius: 4px;
   cursor: pointer;
@@ -34,8 +34,8 @@
 }
 
 .snake-close-btn:hover {
-  background: var(--color-accent-blue);
-  color: #000;
+  background: #ffffff;
+  color: #000000;
 }
 
 .snake-grid {
@@ -59,7 +59,7 @@
 }
 
 .snake-body {
-  background: rgba(139, 92, 246, 0.7);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 2px;
 }
 

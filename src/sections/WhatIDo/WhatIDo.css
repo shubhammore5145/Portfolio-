@@ -49,13 +49,13 @@
 
 /* Hover effects */
 .service-card:hover .service-icon-wrapper {
-  background: var(--gradient-primary);
+  background: #ffffff;
   border-color: transparent;
-  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
 }
 
 .service-card:hover .service-icon {
-  color: white;
+  color: #000000;
   transform: scale(1.1);
 }
 

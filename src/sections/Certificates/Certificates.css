@@ -29,8 +29,8 @@
 }
 
 .cert-nav-btn:hover {
-  background: var(--color-accent-blue);
-  color: white;
+  background: #ffffff;
+  color: #000000;
   border-color: transparent;
 }
 

@@ -6,8 +6,6 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 import { 
   FaSearch, 
   FaTimes, 
-  FaChevronLeft, 
-  FaChevronRight,
   FaBolt,
   FaServer,
   FaShieldAlt,
@@ -155,17 +153,6 @@ const Projects = () => {
     }
   };
 
-  // Smooth step scroll via buttons
-  const scrollStep = (direction) => {
-    const cardStep = 440;
-    const scrollAmount = direction === 'left' ? -cardStep : cardStep;
-    if (window.__lenis) {
-      window.__lenis.scrollTo(window.scrollY + scrollAmount, { duration: 0.5 });
-    } else {
-      window.scrollBy({ top: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
   const openModal = (project) => setSelectedProject(project);
   const closeModal = () => setSelectedProject(null);
 
@@ -243,33 +230,6 @@ const Projects = () => {
                   <FaTimes />
                 </button>
               )}
-            </div>
-
-            <div className="projects-active-counter glass-card">
-              <span className="curr-count" style={{ color: activeAura.primary }}>{String(activeCardIndex + 1).padStart(2, '0')}</span>
-              <span className="sep">/</span>
-              <span className="total-count">{String(filteredProjects.length).padStart(2, '0')}</span>
-            </div>
-
-            <div className="projects-step-arrows">
-              <button
-                type="button"
-                className="step-arrow-btn prev clickable"
-                onClick={() => scrollStep('left')}
-                title="Previous project"
-                aria-label="Previous project"
-              >
-                <FaChevronLeft />
-              </button>
-              <button
-                type="button"
-                className="step-arrow-btn next clickable"
-                onClick={() => scrollStep('right')}
-                title="Next project"
-                aria-label="Next project"
-              >
-                <FaChevronRight />
-              </button>
             </div>
           </div>
         </header>

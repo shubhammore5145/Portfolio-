@@ -107,7 +107,7 @@
 }
 
 .title-gradient {
-  background: var(--gradient-text, linear-gradient(to right, #a78bfa, #c4b5fd, #8b5cf6));
+  background: var(--gradient-text, linear-gradient(180deg, #ffffff 15%, #a1a1aa 100%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -143,18 +143,14 @@
 }
 
 .filter-pill-btn.active {
-  color: #ffffff;
-  border-color: rgba(139, 92, 246, 0.45);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: #000000;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
 }
 
 .filter-pill-active-bg {
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-primary);
-  border-radius: inherit;
-  z-index: 1;
-  opacity: 0.28;
+  display: none;
 }
 
 .pill-label {
@@ -174,8 +170,8 @@
 }
 
 .filter-pill-btn.active .pill-count {
-  background: rgba(139, 92, 246, 0.4);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.15);
+  color: #000000;
 }
 
 /* Right Controls */
@@ -191,7 +187,7 @@
   gap: 8px;
   padding: 7px 14px;
   border-radius: var(--radius-full);
-  background: rgba(15, 15, 24, 0.7);
+  background: rgba(14, 14, 18, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.09);
   min-width: 180px;
   max-width: 240px;
@@ -199,8 +195,8 @@
 }
 
 .projects-quick-search:focus-within {
-  border-color: rgba(139, 92, 246, 0.5);
-  box-shadow: 0 0 16px rgba(139, 92, 246, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.08);
 }
 
 .search-icon {
@@ -229,61 +225,6 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-}
-
-/* Active Counter Badge */
-.projects-active-counter {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  background: rgba(15, 15, 24, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-}
-
-.projects-active-counter .curr-count {
-  font-weight: var(--weight-bold);
-  transition: color 0.6s ease;
-}
-
-.projects-active-counter .sep {
-  color: #52525b;
-}
-
-.projects-active-counter .total-count {
-  color: #a1a1aa;
-  font-weight: var(--weight-medium);
-}
-
-/* Step Arrows */
-.projects-step-arrows {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.step-arrow-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(15, 15, 24, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  color: #ffffff;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.step-arrow-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
 }
 
 /* ── Center Stage: Horizontal Motion Track ── */
@@ -331,8 +272,8 @@
 }
 
 .projects-card-slot.slot-focused .project-card-inner {
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 30px var(--slot-glow, rgba(139, 92, 246, 0.25));
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 30px var(--slot-glow, rgba(255, 255, 255, 0.12));
 }
 
 .projects-card-slot .project-card {

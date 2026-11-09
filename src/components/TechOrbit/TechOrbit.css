@@ -18,9 +18,9 @@
   justify-content: center;
   font-weight: var(--weight-bold);
   font-size: var(--text-base);
-  color: var(--color-accent-blue);
+  color: #ffffff;
   z-index: 10;
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 .orbit-ring {
@@ -87,8 +87,8 @@
 }
 
 .orbit-node:hover {
-  border-color: var(--color-accent-blue);
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   cursor: pointer;
   z-index: 20;
 }

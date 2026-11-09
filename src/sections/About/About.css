@@ -101,16 +101,16 @@
   padding: var(--space-3) var(--space-5);
   margin-bottom: var(--space-6);
   border-radius: var(--radius-lg);
-  background: rgba(139, 92, 246, 0.06);
-  border: 1px solid rgba(139, 92, 246, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .about-edu-icon-wrap {
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background: rgba(139, 92, 246, 0.16);
-  color: #a78bfa;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;

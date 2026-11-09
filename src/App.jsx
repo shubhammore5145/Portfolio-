@@ -12,7 +12,6 @@ import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import SmoothScroll from './components/SmoothScroll/SmoothScroll';
 import Home from './pages/Home';
 import AiChatWidget from './components/AiChatWidget/AiChatWidget';
-import useHackerMode from './hooks/useHackerMode';
 import { ThemeProvider } from './context/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import './styles/global.css';
@@ -22,7 +21,6 @@ const Admin = lazy(() => import('./pages/Admin/Admin'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  useHackerMode(); // Activate global listener
 
   useEffect(() => {
     // Disable browser's automatic scroll restoration to ensure it always starts at top

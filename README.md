@@ -1,69 +1,47 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/shubhammore5145/shubhammore5145/main/header.png" alt="Shubham More Portfolio" width="100%" />
-  
-  <br />
-  
-  <h1>🚀 Shubham More | Premium Interactive Portfolio</h1>
-  <p><strong>A Next-Generation Developer Portfolio featuring AI, IoT integrations, and hidden Easter Eggs!</strong></p>
+# 🚀 Shubham More | Full-Stack Developer Portfolio
 
-  <p>
-    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-    <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
-    <img src="https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue" alt="Framer Motion" />
-    <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase" />
-  </p>
-</div>
+A minimal, high-performance developer portfolio built with React, Vite, and Framer Motion, styled with an Apple/Vercel-inspired Minimalist Monochrome aesthetic.
 
 ---
 
-## 🌟 About The Project
+## 🌟 Overview
 
-This is not just a standard web portfolio—it's an interactive, high-performance experience built to showcase technical depth, creativity, and modern web development skills. It serves as the digital home for **Shubham More**, an IT student and full-stack developer with a passion for IoT, AI, and scalable systems.
+Designed to highlight real-world engineering depth, production-ready full-stack projects, and verified academic milestones.
 
-## ✨ "Crazy" Interactive Features
+- **Author**: Shubham More
+- **Education**: B.Tech in Information Technology, MGM University (2024 – 2028)
+- **Specializations**: Full-Stack Web Development, IoT & Embedded Telemetry, AI/LLM Integration
+- **GitHub**: [@shubhammore5145](https://github.com/shubhammore5145)
+- **LinkedIn**: [shubham-more](https://www.linkedin.com/in/shubham-more-50a2a7428)
 
-This portfolio is packed with unique interactive features and hidden Easter eggs:
+---
 
-- **🤖 "Ask Shubham AI" Widget**: A floating chatbot built directly into the site. Users can ask the AI questions about my skills, projects, and background.
-- **🕶️ Secret "Hacker Mode"**: Type `h a c k` anywhere on the screen to trigger a Matrix-style cyberpunk glitch overlay that takes over the entire website!
-- **🎮 Playable Retro Snake Game**: Tucked away inside the interactive Terminal section! Just type `play snake` to start playing.
-- **🔴 Live IoT "Room Status" Dashboard**: A real-time hardware simulation dashboard displaying live CPU load, Room Temperature, and an interactive desk lamp you can toggle on/off.
-- **🌌 Interactive Particle Engine**: The entire website background features a dynamic neural-network particle system that physically reacts and bounces away from your mouse cursor.
-- **📱 3D "Tilt" Workspace Cards**: The Workspace section uses advanced 3D motion tracking so the cards physically tilt as you move your mouse over them.
+## ✨ Key Features
 
-## 🛠️ Built With
+- **Apple / Vercel Minimalist Monochrome Design**: Pitch-black OLED backgrounds, clean metallic gradients, 1px subtle borders, and refined micro-interactions.
+- **Cinematic Scroll Hero Sequence**: Smooth canvas-based frame-rendering engine that responds fluidly to user scroll position.
+- **Pinned Projects Gallery**: Interactive carousel and categorized filtering (Web, AI, Java, Python, IoT) showcasing 10+ real deployed applications.
+- **Academic & Hackathon Timeline**: Detailed journey documenting B.Tech coursework, HSC (82.17%), SSC (82.80%), and Smart India Hackathon (SIH '24) national finalist recognition.
+- **Live GitHub Integration**: Direct API sync displaying real repositories, commit activity, and language breakdowns.
+- **Integrated Contact Form**: Direct message delivery powered by Firebase Firestore.
 
-- **Frontend Core**: React.js 18, Vite
-- **Styling**: Pure modern CSS (Glassmorphism, Neon glow, CSS Grid/Flexbox)
-- **Animations**: Framer Motion (Scroll reveals, 3D tilt, orchestrations)
-- **Background Engine**: tsParticles v3
-- **Icons**: React Icons (Fa, Si, Vsc)
-- **Backend / DB**: Firebase Firestore (for the Contact form & Admin panel)
+---
 
-## 📂 Project Structure
+## 🛠️ Tech Stack
 
-All data is centrally configured in `src/data/portfolioData.js` so it can be updated instantly without touching UI code.
+- **Framework**: React.js 18 + Vite
+- **Styling**: Modern CSS3 Tokens (`variables.css`), Glassmorphism, Responsive Grid/Flexbox
+- **Animations**: Framer Motion + Lenis Smooth Scroll
+- **Icons**: React Icons (`react-icons/fa`, `react-icons/si`)
+- **Backend / DB**: Firebase Firestore
 
-```bash
-├── public/                 # Static assets (Resume, Images, Favicon)
-├── src/
-│   ├── components/         # Reusable UI elements (Navbar, AI Chat, Orbit, Cards)
-│   ├── context/            # Global state (Theme Context)
-│   ├── data/               # Centralized Data (portfolioData.js)
-│   ├── hooks/              # Custom React Hooks (useHackerMode)
-│   ├── sections/           # Major page sections (Hero, Projects, Terminal, etc.)
-│   ├── styles/             # Global CSS variables and utility classes
-│   └── App.jsx             # Main Application routing and wrappers
-└── package.json
-```
+---
 
 ## 🚀 Getting Started
 
-To run this masterpiece on your local machine:
-
 ### Prerequisites
 - Node.js (v18 or higher)
-- npm
+- npm or pnpm
 
 ### Installation
 
@@ -77,28 +55,19 @@ To run this masterpiece on your local machine:
    ```bash
    npm install
    ```
-   *(Note: The project specifically relies on `@tsparticles/react` v3 for the background engine).*
 
-3. **Start the development server**
+3. **Start local development server**
    ```bash
    npm run dev
    ```
 
-## 📡 Firebase Setup (For Contact Form)
-
-The contact form simulates a successful send by default. To make it actually store messages in a database:
-
-1. Create a Firebase project and enable Firestore.
-2. Rename `.env.example` to `.env.local`.
-3. Add your Firebase keys into `.env.local`.
-
-## 📱 Mobile Responsiveness
-
-The entire architecture is built "mobile-first". Everything from the interactive Terminal to the 3D Orbit components gracefully degrades and reorganizes on smaller screens.
+4. **Production Build**
+   ```bash
+   npm run build
+   ```
 
 ---
-<div align="center">
-  <p>Built with ❤️ and an unhealthy amount of coffee by <strong>Shubham More</strong>.</p>
-  <a href="https://github.com/shubhammore5145">GitHub</a> • 
-  <a href="https://www.linkedin.com/in/shubham-more-50a2a7428">LinkedIn</a>
-</div>
+
+## 📄 License
+
+This project is licensed under the MIT License.

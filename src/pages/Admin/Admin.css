@@ -109,8 +109,8 @@
 }
 
 .admin-nav-item:hover, .admin-nav-item.active {
-  background: rgba(139, 92, 246, 0.1);
-  color: var(--color-accent-blue);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
 .admin-sidebar-footer {

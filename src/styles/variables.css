@@ -1,40 +1,51 @@
 /* ============================================
    DESIGN TOKENS & VARIABLES
-   Premium Purple & Violet Developer Portfolio
+   Minimalist Monochrome (Apple / Vercel Aesthetic)
 ============================================ */
 
 :root {
-  /* Core Colors */
-  --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #0f0f18;
-  --color-bg-tertiary: #1a1a2e;
+  /* Core Colors - OLED Pitch Black & Graphite */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #09090b;
+  --color-bg-tertiary: #121215;
+  --color-bg-elevated: #18181b;
   
   --color-text-primary: #ffffff;
   --color-text-secondary: #a1a1aa;
   --color-text-tertiary: #71717a;
   --color-text-muted: #52525b;
 
-  /* Accents (Purple & Violet Theme) */
-  --color-accent-blue: #8b5cf6; /* Primary Violet */
-  --color-accent-violet: #a78bfa; /* Lighter Lavender */
-  --color-accent-cyan: #7c3aed; /* Deeper Purple */
+  /* Accents (Monochrome Silver & Crisp Pure White) */
+  --accent-rgb: 255, 255, 255;
+  --color-accent-rgb: 255, 255, 255;
+  --color-accent-blue: #ffffff;       /* Primary Pure White */
+  --color-accent-violet: #e4e4e7;     /* Metallic Silver (Zinc-200) */
+  --color-accent-cyan: #d4d4d8;       /* Subtle Zinc (Zinc-300) */
+  --color-accent-dark: #27272a;       /* Dark Graphite */
   
-  --color-error: #ef4444;
-  --color-success: #8b5cf6;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.22);
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-violet));
-  --gradient-glow: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(167, 139, 250, 0.4));
-  --gradient-text: linear-gradient(to right, #a78bfa, #c4b5fd, #8b5cf6); /* Bright Violet */
+  --color-error: #ef4444;
+  --color-success: #10b981;
+
+  /* Gradients - Apple / Vercel Metallic White to Silver */
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #d4d4d8 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+  --gradient-text: linear-gradient(180deg, #ffffff 15%, #a1a1aa 100%);
+  --gradient-text-subtle: linear-gradient(180deg, #f4f4f5 0%, #71717a 100%);
   
-  /* Glassmorphism */
-  --glass-bg: rgba(15, 15, 24, 0.6);
+  /* Glassmorphism & Flat Minimal Borders (Apple / Vercel spec) */
+  --glass-bg: rgba(12, 12, 15, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-blur: blur(16px);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  --glass-border-hover: rgba(255, 255, 255, 0.22);
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+  --glow-primary: 0 0 25px rgba(255, 255, 255, 0.12);
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'Fira Code', 'JetBrains Mono', Consolas, Monaco, monospace;
   
   --text-xs: 0.75rem;
@@ -116,23 +127,36 @@
 }
 
 [data-theme="light"] {
-  --color-bg-primary: #faf9ff;
-  --color-bg-secondary: #f0edff;
-  --color-bg-tertiary: #e4e0f5;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f1f3f5;
+  --color-bg-elevated: #e9ecef;
   
   --color-text-primary: #09090b;
-  --color-text-secondary: #3f3f46;
-  --color-text-tertiary: #52525b;
-  --color-text-muted: #71717a;
+  --color-text-secondary: #495057;
+  --color-text-tertiary: #6c757d;
+  --color-text-muted: #868e96;
 
-  --color-accent-blue: #7c3aed;
-  --color-accent-violet: #8b5cf6;
-  --color-accent-cyan: #6d28d9;
+  --accent-rgb: 9, 9, 11;
+  --color-accent-rgb: 9, 9, 11;
+  --color-accent-blue: #09090b;
+  --color-accent-violet: #212529;
+  --color-accent-cyan: #343a40;
+  --color-accent-dark: #f1f3f5;
   
-  --color-error: #dc2626;
-  --color-success: #7c3aed;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.2);
 
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  --color-error: #dc2626;
+  --color-success: #059669;
+
+  --gradient-primary: linear-gradient(135deg, #09090b 0%, #27272a 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
+  --gradient-text: linear-gradient(180deg, #09090b 15%, #495057 100%);
+
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-hover: rgba(0, 0, 0, 0.18);
+  --glass-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.06);
+  --glow-primary: 0 0 20px rgba(0, 0, 0, 0.08);
 }

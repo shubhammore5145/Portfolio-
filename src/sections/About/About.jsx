@@ -118,7 +118,7 @@ const About = () => {
             <motion.div
               key={stat.label}
               className="about-stat glass-card"
-              whileHover={{ y: -5, borderColor: 'rgba(139, 92, 246, 0.4)' }}
+              whileHover={{ y: -5, borderColor: 'rgba(255, 255, 255, 0.3)' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

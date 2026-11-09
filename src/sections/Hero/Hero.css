@@ -57,10 +57,10 @@
 
 .hero-glow-crimson {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 650px;
+  height: 650px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(225, 29, 72, 0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
   filter: blur(120px);
   top: -15%;
   left: 15%;
@@ -69,10 +69,10 @@
 
 .hero-glow-purple {
   position: absolute;
-  width: 550px;
-  height: 550px;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(220, 220, 235, 0.05) 0%, transparent 70%);
   filter: blur(120px);
   bottom: 0%;
   right: 15%;
@@ -161,7 +161,7 @@
 }
 
 .hero-name-accent {
-  background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 40%, #8b5cf6 75%, #ec4899 100%);
+  background: linear-gradient(180deg, #ffffff 20%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

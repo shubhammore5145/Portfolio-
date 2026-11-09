@@ -11,9 +11,9 @@ import './GitHub.css';
 
 // Fallback repositories if API fails or rate-limits
 const fallbackRepos = [
-  { name: 'portfolio-website', description: 'My premium futuristic developer portfolio', stars: 5, forks: 2, language: 'JavaScript' },
-  { name: 'ambulance-traffic-system', description: 'Smart Ambulance Traffic Management System using ESP32', stars: 12, forks: 4, language: 'C++' },
-  { name: 'ai-career-trackr', description: 'AI-powered career guidance platform', stars: 8, forks: 1, language: 'Python' }
+  { name: 'LifeLane', description: 'Smart Ambulance Traffic Management System using ESP32', language: 'C++' },
+  { name: 'ai-career-trackr', description: 'AI-powered career guidance platform with automated roadmap generation', language: 'JavaScript' },
+  { name: 'MartGPT', description: 'AI Smart Retail POS & Cloud ERP with OCR & WhatsApp billing', language: 'TypeScript' }
 ];
 
 const GitHub = () => {
@@ -128,8 +128,12 @@ const GitHub = () => {
                   </div>
                   <p className="repo-desc">{repo.description || 'No description available'}</p>
                   <div className="repo-meta">
-                    <span className="repo-meta-item"><FaStar /> {repo.stargazers_count || repo.stars}</span>
-                    <span className="repo-meta-item"><FaCodeBranch /> {repo.forks_count || repo.forks}</span>
+                    {(repo.stargazers_count > 0 || repo.stars > 0) && (
+                      <span className="repo-meta-item"><FaStar /> {repo.stargazers_count || repo.stars}</span>
+                    )}
+                    {(repo.forks_count > 0 || repo.forks > 0) && (
+                      <span className="repo-meta-item"><FaCodeBranch /> {repo.forks_count || repo.forks}</span>
+                    )}
                     {repo.language && <span className="repo-lang">{repo.language}</span>}
                   </div>
                 </motion.a>

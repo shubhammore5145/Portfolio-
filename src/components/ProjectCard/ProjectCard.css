@@ -23,8 +23,8 @@
 }
 
 .project-card:hover .project-card-inner {
-  border-color: rgba(139, 92, 246, 0.45);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.2);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.05);
 }
 
 /* Visual Image Banner */
@@ -53,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(167, 139, 250, 0.1));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
 }
 
 .project-placeholder span {
@@ -201,13 +201,13 @@
 }
 
 .project-card:hover .project-card-tech-tag {
-  border-color: rgba(139, 92, 246, 0.25);
-  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .project-card-tech-more {
-  color: var(--color-accent-violet);
-  border-color: rgba(139, 92, 246, 0.3);
+  color: #e4e4e7;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Action Buttons */
@@ -234,15 +234,22 @@
 }
 
 .project-card-actions .btn-primary {
-  background: var(--gradient-primary);
-  color: #ffffff;
-  border: none;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.12);
 }
 
 .project-card-actions .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.5);
+  background: #f4f4f5;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.22);
+}
+
+[data-theme="light"] .project-card-actions .btn-primary {
+  background: #09090b;
+  color: #ffffff;
+  border-color: #09090b;
 }
 
 .project-card-actions .btn-outline {
@@ -252,8 +259,8 @@
 }
 
 .project-card-actions .btn-outline:hover {
-  background: rgba(139, 92, 246, 0.15);
-  border-color: var(--color-accent-blue);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
   color: #ffffff;
   transform: translateY(-2px);
 }

@@ -17,13 +17,9 @@ import { MdOutlineSensors } from 'react-icons/md';
 export const navLinks = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'about', label: 'About', href: '#about' },
-  { id: 'whatido', label: 'What I Do', href: '#whatido' },
   { id: 'skills', label: 'Skills', href: '#skills' },
   { id: 'projects', label: 'Projects', href: '#projects' },
-  { id: 'workspace', label: 'Workspace', href: '#workspace' },
   { id: 'journey', label: 'Journey', href: '#journey' },
-  { id: 'certificates', label: 'Certificates', href: '#certificates' },
-  { id: 'achievements', label: 'Achievements', href: '#achievements' },
   { id: 'github', label: 'GitHub', href: '#github' },
   { id: 'contact', label: 'Contact', href: '#contact' }
 ];
@@ -113,8 +109,8 @@ export const educationData = [
 export const statistics = [
   { label: "Deployed Projects", value: "10+" },
   { label: "Hackathon Finalist", value: "SIH '24" },
-  { label: "Tech Stack", value: "15+" },
-  { label: "Certifications", value: "5+" }
+  { label: "Technologies", value: "15+" },
+  { label: "Academic Degree", value: "B.Tech IT" }
 ];
 
 // ============================================
@@ -315,27 +311,6 @@ export const projectsData = [
     github: "https://github.com/shubhammore5145/ai-career-trackr",
     liveDemo: "https://aicareertrackr.netlify.app/",
     isFeatured: true
-  },
-  {
-    id: "mess-management",
-    title: "Mess Management System",
-    subtitle: "Hostel Operations, Student Billing & Inventory Management",
-    category: "JAVA",
-    image: "/images/projects/mess-management.jpg",
-    description: "Developed a desktop application to digitize hostel mess operations, including billing, attendance, and inventory management.",
-    problem: "Manual paper-based register keeping leads to billing discrepancies, missed meal counts, and unmonitored grocery wastage.",
-    idea: "Digitize student records, daily meals, inventory stocks, and billing calculations in an offline-capable, robust desktop software.",
-    technology: "Java, MySQL, JDBC, OOP, Desktop UI",
-    solution: "Designed a normalized MySQL database supporting 500+ student records with JDBC connection pooling, automated billing, and low-stock alerts.",
-    features: [
-      "Developed a desktop application to digitize hostel mess operations, including billing, attendance, and inventory management.",
-      "Automated monthly student billing, daily attendance tracking, low-stock alerts, and email notifications.",
-      "Designed a normalized MySQL database supporting 500+ student records with JDBC connection pooling."
-    ],
-    technologies: ["Java", "MySQL", "JDBC", "OOP", "Desktop Application", "System Design"],
-    github: "https://github.com/shubhammore5145/mess-management-system",
-    liveDemo: null,
-    isFeatured: false
   },
   {
     id: "personal-finance",

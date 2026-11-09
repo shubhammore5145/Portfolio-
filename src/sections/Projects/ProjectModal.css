@@ -72,7 +72,7 @@
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: rgba(139, 92, 246, 0.5) rgba(255, 255, 255, 0.04);
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.04);
 }
 
 /* Custom Scrollbar for Webkit */
@@ -87,12 +87,12 @@
 }
 
 .modal-scroll-area::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.5);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-full);
 }
 
 .modal-scroll-area::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-violet);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .modal-image-wrapper {

@@ -70,7 +70,7 @@
 
 .iot-icon.temp { color: #f87171; }
 .iot-icon.cpu { color: #60a5fa; }
-.iot-icon.network { color: #a78bfa; }
+.iot-icon.network { color: #e4e4e7; }
 .iot-icon.lamp-on { 
   color: #facc15; 
   filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.6));
